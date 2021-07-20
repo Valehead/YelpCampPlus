@@ -1,0 +1,48 @@
+<% layout('layouts/boilerplate') %>
+
+    <div id="campground-container">
+    <div id="cluster-map" ></div>    
+        <div class="row mt-5 mb-2">
+            <div class="col-md-5">
+                <h1>All Campgrounds</h1>
+            </div>
+            <div class="col-md-5">
+                <a class="btn btn-primary" href="/campgrounds/new">Add New Campground</a>
+            </div>
+            <div class="col-md-2">
+                <input class="form-control" type="search" name="search-grounds" id="search-all" placeholder="not developed">
+            </div>
+        </div>
+            <% for(let campground of campgrounds.docs) {  %> 
+                <div class="card mb-3" style="width: auto">
+                    <div class="row mx-0">
+                        <div class="col-md-4 p-0" id="imgbgindex">
+                            <%if(campground.images.length){ %> 
+                            <img src="<%= campground.images[0].url %>" class="img-fluid d-block" id="imgRestrictIndex" alt="">    
+                            <% }else{ %>
+                            <img src="https://res.cloudinary.com/dx9uqtyks/image/upload/c_scale,h_375/v1623194082/YelpCamp/noimage_gsxtmk.jpg" id="imgRestrictIndex" class="img-fluid d-block" alt="">
+                            <% }; %>  
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><%=campground.title%></h5>
+                                <p class="card-text"><%=campground.description%></p>
+                                <p class="card-text">
+                                    <small class="text-muted"><%=campground.location%></small>
+                                </p>
+                                <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">View Campsite</a>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <% } %>
+            </div>
+              <!-- <div class="text-center my-4">
+                  <a href="/campgrounds?page=<%= campgrounds.nextPage %>" class="btn btn-primary" id="paginate-campgrounds">Next Page</a>
+              </div> -->
+<script src="/js/paginate.js"></script>              
+<script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+    const mapgrounds = {features: <%-JSON.stringify(mapgrounds)%>};
+</script>
+<script src="/js/clusterMap.js"></script>

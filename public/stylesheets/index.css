@@ -1,0 +1,28 @@
+#cluster-map{
+    width: 100%;
+    height: 500px;
+}
+
+#map{
+    width: 100%;
+    height: 300px;
+}
+
+
+#imgRestrictCarousel{
+    max-height: 600px;
+    margin:auto;
+}
+
+#imgRestrictIndex{
+    max-height: 300px;
+    margin:auto !important;
+}
+
+#imgbgshow{
+    background-color: rgba(33, 37, 41, 0.75);
+}
+
+#imgbgindex{
+    background-color: rgba(33, 37, 41, 0.75);
+}
