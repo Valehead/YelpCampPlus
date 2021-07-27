@@ -19,8 +19,8 @@ window.onscroll = function(ev) {
 
 function generateCampground(campground){
     let cground = `<div class="card mb-3" style="width: auto">
-    <div class="row">
-        <div class="col-md-4 mx-0" id="imgbgindex">
+    <div class="row mx-0">
+        <div class="col-md-4 p-0" id="imgbgindex">
             <img src="${ campground.images.length ? campground.images[0].url : 'https://res.cloudinary.com/dx9uqtyks/image/upload/c_scale,h_375/v1623194082/YelpCamp/noimage_gsxtmk.jpg'}" class="img-fluid d-block" id="imgRestrictIndex" alt="">
         </div>
         <div class="col-md-8">
