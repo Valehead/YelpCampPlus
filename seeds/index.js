@@ -4,7 +4,7 @@ const { places, descriptors, images } = require('./seedHelpers');
 const Campground = require('../models/campground');
 const Review = require('../models/review');
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp', {
+mongoose.connect('mongodb+srv://valehead:AqMuLS01rBvlsVkF@yelp-camp.gud3x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
@@ -20,7 +20,8 @@ db.once("open", () => {
 const sample = array => array[Math.floor(Math.random() * array.length)];
 
 function ranimg() {return (Math.floor(Math.random() * images.length))};
-
+//production userID: 60e50ac38e87ea0015e673c4
+//production userID: 6090b2d08159343300d8646d
 
 const seedDB = async () => {
     await Campground.deleteMany({});
@@ -32,7 +33,7 @@ const seedDB = async () => {
         const random1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 50) + 10;
         const camp = new Campground({
-            author: '6090b2d08159343300d8646d',
+            author: '60e50ac38e87ea0015e673c4',
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci molestias enim culpa aut ipsa tenetur eligendi iure natus, et nam obcaecati commodi, earum quis modi nisi, aliquam sapiente sed facere.',

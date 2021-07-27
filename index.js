@@ -24,8 +24,8 @@ const campgroundsRoutes = require('./routes/campgrounds');
 const reviewsRoutes = require('./routes/reviews');
 
 const secret = process.env.SECRET || 'pinappleisntspelledcorrectly';
-//const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp'; //production
-const dbURL = 'mongodb://localhost:27017/yelp-camp'; //development
+const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp'; //production
+//const dbURL = 'mongodb://localhost:27017/yelp-camp'; //development
 
 const MongoStore = require('connect-mongo');
 const store = MongoStore.create({
