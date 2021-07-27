@@ -21,7 +21,7 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 
 function ranimg() {return (Math.floor(Math.random() * images.length))};
 //production userID: 60e50ac38e87ea0015e673c4
-//production userID: 6090b2d08159343300d8646d
+//development userID: 6090b2d08159343300d8646d
 
 const seedDB = async () => {
     await Campground.deleteMany({});
