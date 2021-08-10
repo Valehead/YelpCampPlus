@@ -1,22 +1,32 @@
 <% layout('layouts/boilerplate') %>
 
-    <div id="campground-container">
-    <div id="cluster-map" ></div>    
+<div id="campground-container">
         <div class="row mt-5 mb-2">
-            <div class="col-md-5">
-                <h1>All Campgrounds</h1>
-            </div>
-            <div class="col-md-3">
-                <a class="btn btn-primary" href="/campgrounds/new">Add New Campground</a>
-            </div>
-            <div class="col-md-4">
-                <form class="d-flex" action="/campgrounds/search" method="get">
-                    <input class="form-control me-2" type="search" name="search" id="search-all" placeholder="Search Campgrounds...">
-                    <button class="btn btn-outline-dark" type="submit">Search</button>
-                </form>
-            </div>
+                <% if(search){ %>
+                <div class="col-md-8">
+                    <h1>Your search for: "<%= search %>" returned <%= campgrounds.length %> results...</h1>
+                </div>
+                <div class="col-md-4">
+                    <form class="d-flex" action="/campgrounds/search" method="get">
+                        <input class="form-control me-2" type="search" name="search" id="search-all" placeholder="Search Campgrounds...">
+                        <button class="btn btn-outline-dark" type="submit">Search</button>
+                    </form>
+                </div>
+                <% }else{ %> 
+                <div class="col-md-4 mx-auto">
+                    <h1>Search for a Location...</h1>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-4 mx-auto">
+                        <form class="d-flex" action="/campgrounds/search" method="get">
+                            <input class="form-control me-2" type="search" name="search" id="search-all" placeholder="Search Campgrounds...">
+                            <button class="btn btn-outline-dark" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+                <% }; %>
         </div>
-            <% for(let campground of campgrounds.docs) {  %> 
+            <% for(let campground of campgrounds) {  %> 
                 <div class="card mb-3" style="width: auto">
                     <div class="row mx-0">
                         <div class="col-md-4 p-0" id="imgbgindex">
@@ -40,12 +50,3 @@
                 </div>
                 <% } %>
             </div>
-              <!-- <div class="text-center my-4">
-                  <a href="/campgrounds?page=<%= campgrounds.nextPage %>" class="btn btn-primary" id="paginate-campgrounds">Next Page</a>
-              </div> -->
-<script src="/js/paginate.js"></script>              
-<script>
-    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-    const mapgrounds = {features: <%-JSON.stringify(mapgrounds)%>};
-</script>
-<script src="/js/clusterMap.js"></script>

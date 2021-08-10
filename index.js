@@ -24,8 +24,8 @@ const campgroundsRoutes = require('./routes/campgrounds');
 const reviewsRoutes = require('./routes/reviews');
 
 const secret = process.env.SECRET || 'pinappleisntspelledcorrectly';
-const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp'; //production
-//const dbURL = 'mongodb://localhost:27017/yelp-camp'; //development
+//const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp'; //production
+const dbURL = 'mongodb://localhost:27017/yelp-camp'; //development
 
 const MongoStore = require('connect-mongo');
 const store = MongoStore.create({
@@ -99,15 +99,20 @@ const styleSrcUrls = [
     "https://api.tiles.mapbox.com/",
     "https://fonts.googleapis.com/",
     "https://use.fontawesome.com/",
-    "https://cdn.jsdelivr.net/"
+    "https://cdn.jsdelivr.net/",
+    "https://kit.fontawesome.com/",
+    "https://ka-f.fontawesome.com/"
 ];
 const connectSrcUrls = [
     "https://api.mapbox.com/",
     "https://a.tiles.mapbox.com/",
     "https://b.tiles.mapbox.com/",
     "https://events.mapbox.com/",
+    "https://ka-f.fontawesome.com/"
 ];
-const fontSrcUrls = [];
+const fontSrcUrls = [
+    "https://ka-f.fontawesome.com/"
+];
 app.use(
     helmet.contentSecurityPolicy({
         directives: {

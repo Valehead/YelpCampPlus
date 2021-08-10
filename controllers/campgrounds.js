@@ -68,6 +68,7 @@ module.exports.updateCampground = async (req, res) => {
 };
 
 module.exports.showCampground = async (req, res) => {
+    console.log("here");
     const { id } = req.params;
     const campground = await Campground.findById(id).populate({path: 'reviews', populate: {path: 'author'}}).populate('author');
     if (!campground){
@@ -81,4 +82,10 @@ module.exports.deleteCampground = async (req, res) => {
     const { id } = req.params;
     await Campground.findByIdAndDelete(id);
     res.redirect('/campgrounds');
+};
+
+module.exports.findCampground = async (req, res) => {
+    const { search } = req.query;
+    const campgrounds = await Campground.find({$text: { $search : `\"${search}\"`}});
+    res.render('campgrounds/search', { campgrounds, search });
 };
