@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 const cities = require('./cities');
-const { places, descriptors, images } = require('./seedHelpers');
+const { places, descriptors, images, compliments, eyedeez } = require('./seedHelpers');
 const Campground = require('../models/campground');
 const Review = require('../models/review');
 
-mongoose.connect('mongodb+srv://valehead:AqMuLS01rBvlsVkF@yelp-camp.gud3x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp'; //production
+//const dbURL = 'mongodb://localhost:27017/yelp-camp'; //development
+
+
+mongoose.connect(dbURL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
@@ -46,6 +50,21 @@ const seedDB = async () => {
             { "url" : `${images[ran2].url}`, "filename" : `${images[ran2].filename}` },
             { "url" : `${images[ran3].url}`, "filename" : `${images[ran3].filename}` } ]
         });
+        const ranReviews = Math.floor(Math.random()*12) + 1;
+        let totalRating = 0;
+        for(let g = 0; g < ranReviews; g++){
+            const rating = Math.floor(Math.random() * (5 - 2 + 1) + 2);
+            const review = new Review({
+                rating,
+                body: compliments[Math.floor(Math.random()*compliments.length)],
+                campground: camp._id,
+                author: eyedeez[Math.floor(Math.random()*eyedeez.length)]
+            });
+            totalRating += rating;
+            camp.reviews.push(review);
+            await review.save();
+        };
+        camp.rating = totalRating/ranReviews;
         await camp.save();
     };
 };

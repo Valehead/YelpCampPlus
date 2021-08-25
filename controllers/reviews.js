@@ -9,6 +9,7 @@ module.exports.createNewReview = async (req, res) => {
     campground.reviews.push(newReview);
     newReview.campground = campground;
     await newReview.save();
+    campground.rating = newReview.rating/campground.reviews.length;
     await campground.save();
     req.flash('success', 'Created new review!');
     res.redirect(`/campgrounds/${id}`);

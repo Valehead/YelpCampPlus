@@ -1,7 +1,8 @@
 <% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/stylesheets/newStar.css">
 
     <div id="campground-container">
-    <div id="cluster-map" ></div>    
+    <div class="shadow" id="cluster-map" ></div>    
         <div class="row mt-5 mb-2">
             <div class="col-md-5">
                 <h1>All Campgrounds</h1>
@@ -34,6 +35,7 @@
                                     <small class="text-muted"><%=campground.location%></small>
                                 </p>
                                 <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">View Campsite</a>
+                                <div class="Stars mt-4" style="--rating: <%= campground.rating %>; --star-size: 34px;" aria-label="Rating of this location is <%= campground.rating %> out of 5."></div>
                             </div>
                         </div>    
                     </div>

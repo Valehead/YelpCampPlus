@@ -68,7 +68,6 @@ module.exports.updateCampground = async (req, res) => {
 };
 
 module.exports.showCampground = async (req, res) => {
-    console.log("here");
     const { id } = req.params;
     const campground = await Campground.findById(id).populate({path: 'reviews', populate: {path: 'author'}}).populate('author');
     if (!campground){

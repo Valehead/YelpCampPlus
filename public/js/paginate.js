@@ -30,6 +30,7 @@ function generateCampground(campground){
                 <p class="card-text">
                     <small class="text-muted">${campground.location}</small>
                 </p>
+                <div class="Stars my-2" style="--rating: ${campground.rating}; --star-size: 34px;" aria-label="Rating of this location is ${campground.rating} out of 5."></div>
                 <a href="/campgrounds/${ campground._id }" class="btn btn-primary">View Campsite</a>
             </div>
         </div>    

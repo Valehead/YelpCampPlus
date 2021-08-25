@@ -241,3 +241,69 @@ module.exports.images = [
         "filename" : "YelpCamp/asoggetti-F_VpK14kvM8-unsplash_bx1iiz"
     }
 ];
+
+module.exports.compliments = [
+    "This place is amazing!",
+    "My earliest childhood memories were created in this very place.",
+    "Oh my word, I'd love to take my family here! It looks like a blast",
+    "My wife surprised me with a trip here for my 30th birthday. She's such a peach!",
+    "This place is dog friendly and had cheap food.",
+    "I proposed to my husband here, this place has a special place in my heart!",
+    "I saw a man get arrested here! Coolest experience ever!!",
+    "This campground was very cold, make sure you pack accordingly!",
+    "This campground was very hot, make sure you pack accordingly!",
+    "This campground was very humid, make sure you pack accordingly!",
+    "This campground was very dry, make sure you pack accordingly!",
+    "They had ice cream cones when it was hot outside. Win.",
+    "They had hot chocolate inside when it was snowing. Win.",
+    "My mom only yelled at me twice on this trip! Sick!!",
+    "My dad only complained once at this campground! Winning.",
+    "Terrible service. Super boring",
+    "Nothing like the pictures, don't believe the hype",
+    "My backyard is more exciting.",
+    "Don't waste your time or money, get a hotel.",
+    "My cat ran away!",
+    "A bear attacked our food!",
+    "This place is haunted by a demon goat!",
+    "The wifi sucked, I couldn't go on social media once.",
+    "No cell service, don't get lost!",
+    "The berries are poison, don't eat them.",
+    "There is poison ivy everywhere!",
+    "Don't wipe with the leaves unless you want to find a hospital..."
+];
+
+module.exports.names = [
+"Raquel Lewis",
+"Minnie Combs",
+"Jay Hickman",
+"Cristina Irwin",
+"Hubert Barton",
+"Lloyd McLaughlin",
+"Alex Walker",
+"Clinton Simmons",
+"Jordan Douglass",
+"Rene Dodson",
+"Stewart Velasquez",
+"Krystal Coffey",
+"Rosa Walton",
+"Sergio Peters",
+"Rod Gaines",
+];
+
+module.exports.eyedeez = [
+    '6125acd1401dd3001573d57e',
+    '6125adaf401dd3001573d581',
+    '6125adc6401dd3001573d582',
+    '6125addc401dd3001573d583',
+    '6125adff401dd3001573d584',
+    '6125adff401dd3001573d585',
+    '6125adff401dd3001573d586',
+    '6125adff401dd3001573d587',
+    '6125adff401dd3001573d588',
+    '6125adff401dd3001573d589',
+    '6125adff401dd3001573d58a',
+    '6125adff401dd3001573d58b',
+    '6125adff401dd3001573d58c',
+    '6125adff401dd3001573d58d',
+    '6125adff401dd3001573d58e'
+]
