@@ -4,7 +4,7 @@ const { places, descriptors, images, compliments, eyedeez } = require('./seedHel
 const Campground = require('../models/campground');
 const Review = require('../models/review');
 
-const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp'; //production
+const dbURL = 'mongodb+srv://valehead:AqMuLS01rBvlsVkF@yelp-camp.gud3x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'; //production
 //const dbURL = 'mongodb://localhost:27017/yelp-camp'; //development
 
 
@@ -30,7 +30,7 @@ function ranimg() {return (Math.floor(Math.random() * images.length))};
 const seedDB = async () => {
     await Campground.deleteMany({});
     await Review.deleteMany({});
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < 400; i++) {
         const ran1 = ranimg();
         const ran2 = ranimg();
         const ran3 = ranimg();
